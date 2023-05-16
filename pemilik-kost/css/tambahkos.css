@@ -1,0 +1,56 @@
+.property-layout_body {
+    position: relative;
+    top: 0;
+    left: 334px;
+    width: calc(100vw - 350px);
+    padding: 116px 77px 100px;
+}
+
+.sidebar-title {
+    margin-top: 55px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 42px;
+    color: rgba(0,0,0,.87);
+}
+
+.title {
+    margin-top: 55px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 42px;
+    color: rgba(0,0,0,.87);
+}
+
+.title-rekening {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 42px;
+    color: rgba(0,0,0,.87);
+}
+.title-2 {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    color: rgba(0,0,0,.87);
+}
+
+.sidebar-contain {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    color: rgba(0,0,0,.87);
+}
+
+.empty-state {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #dbdbdb;
+}
