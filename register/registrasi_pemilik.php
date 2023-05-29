@@ -1,3 +1,12 @@
+<?php
+
+require_once '../function.php';
+if (isset($_POST["submit"])) {
+    register_pemilik($_POST);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,12 +75,12 @@
             <div class="divider-custom divider-light">
             </div>
             <!-- Masthead Subheading-->
-            <form action="submit-form.php" method="post">
+            <form method="post">
                 <label for="full-name">Nama Lengkap</label><br>
-                <input class="divider-custom-box" type="text" id="full-name" name="full-name" required placeholder=" Masukkan nama lengkap sesuai identitas"><br>
+                <input class="divider-custom-box" type="text" id="full-name" name="name" required placeholder=" Masukkan nama lengkap sesuai identitas"><br>
 
                 <label for="phone-number">Nomor Handphone</label> <br>
-                <input class="divider-custom-box" type="tel" id="phone-number" name="phone-number" required placeholder="Isi dengan nomor handphone yang aktif"><br>
+                <input class="divider-custom-box" type="tel" id="phone-number" name="nohp" required placeholder="Isi dengan nomor handphone yang aktif"><br>
 
                 <label for="email">Email(Opsional)</label><br>
                 <input class="divider-custom-box" type="email" id="email" name="email" required placeholder="Masukkan email untuk akun Mamikos"><br>
@@ -87,7 +96,7 @@
 
                 <label for="Password">Ulangi Password</label><br>
                 <div class="password-container">
-                    <input class="divider-custom-box" type="password" id="password" name="password" required placeholder="Masukkan kembali password">
+                    <input class="divider-custom-box" type="password" id="passwordconfir" name="passwordconfir" required placeholder="Masukkan kembali password">
                     <span class="password-toggle">
                         <!-- <i class="fa fa-eye-slash"></i> -->
                     </span>
@@ -96,7 +105,7 @@
 
 
 
-                <button class="divider-custom-daftar" type="submit" value="Daftar">Daftar</button>
+                <button class="divider-custom-daftar" type="submit" name="submit">Daftar</button>
             </form><br>
 
             <p> Sudah punya akun Mamikos? <a class="rata-kan-satu">Masuk di sini</a>

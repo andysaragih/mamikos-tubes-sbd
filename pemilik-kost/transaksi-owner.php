@@ -1,3 +1,10 @@
+<?php
+require_once '../function.php';
+if (empty($_SESSION['nohp'])) {
+    header("Location: ../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

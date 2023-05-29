@@ -1,3 +1,11 @@
+<?php
+require_once '../function.php';
+if (empty($_SESSION['nohp'])) {
+    header("Location: ../index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,17 +55,6 @@
                                     </p>
                                 </div>
                             </a>
-                        </div>
-                        <div class="card" style="padding: 0px;">
-                            <div class="card-body">
-                                <div class="card-ikon">
-                                    <i class="fas fa-headset"></i>
-                                    <p class="card-side">
-                                        <b>Pusat Bantuan</b> <br>
-                                        Info Bantuan Seputar Mamikos
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

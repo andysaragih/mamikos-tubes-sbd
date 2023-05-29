@@ -91,9 +91,9 @@
             <!-- End of Topbar -->
 
             <!-- Bootstrap core JavaScript-->
-            <script src="../bootstrap/js/bootstrap.bundle.js"></script>
-            <script src="../bootstrap/vendor/jquery/jquery.min.js"></script>
-            <script src="../bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="bootstrap/js/bootstrap.bundle.js"></script>
+            <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+            <script src="..bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
             <!-- Core plugin JavaScript-->
             <script src="../bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>

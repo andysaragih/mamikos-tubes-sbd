@@ -9,8 +9,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded" href="#about">Pusat bantuan</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded" href="#about" class="card-ikon" class="card-side"><i class="fa-regular fa-user-circle me-3"></i> Clinton Christovel Simanullang</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded" href="#about" class="card-ikon" class="card-side"><i class="fa-regular fa-user-circle me-3"></i><?php echo $_SESSION['nama']; ?></a></li>
             </ul>
         </div>
     </div>

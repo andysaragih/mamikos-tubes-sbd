@@ -1,3 +1,13 @@
+<?php
+
+require_once '../function.php';
+if (isset($_POST["submitPemilik"])) {
+    login_pemilik($_POST);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,17 +46,17 @@
             <!-- Icon Divider-->
 
             <!-- Masthead Subheading-->
-            <form action="submit-form.php" method="post">
+            <form method="post">
 
                 <label for="phone-number">Nomor Handphone</label> <br>
                 <div class="phone-number1" role="textbox" aria-required="true" aria-invalid="false">
-                    <input type="tel" name="Nomor Handphone" maxlength="14" placeholder="Nomor Handphone" required="required" class="phone-number2">
+                    <input type="tel" name="nohp" maxlength="14" placeholder="Nomor Handphone" required="required" class="phone-number2">
                 </div>
                 <br>
 
                 <label for="phone-number">Password</label> <br>
                 <div class="phone-number1" role="textbox" aria-required="true" aria-invalid="false">
-                    <input type="password" name="Password" maxlength="14" placeholder="Masukkan Password" required="required" class="phone-number2">
+                    <input type="password" name="password" maxlength="14" placeholder="Masukkan Password" required="required" class="phone-number2">
                     <span class="password-toggle1">
                         <!-- <i class="fa fa-eye-slash"></i> -->
                     </span>
@@ -54,7 +64,7 @@
 
 
 
-                <button class="divider-custom-daftar" type="submit" value="Login">Login</button>
+                <button class="divider-custom-daftar" name="submitPemilik" type="submit">Login</button>
             </form><br>
 
             <p> Belum punya akun Mamikos? <a class="rata-kan-satu" href="../register/registrasi_pemilik.php">Daftar sekarang</a>

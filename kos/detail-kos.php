@@ -1,3 +1,21 @@
+<?php
+
+// require_once '../function.php';
+
+// $query = "SELECT a.*, b.peraturan_kamar FROM kos a INNER JOIN peraturan_kamar b ON a.id_kos = b.id_kos";
+// $a = mysqli_query($conn, $query);
+// $c = [];
+// while ($b = mysqli_fetch_assoc($a)) {
+//   $c[] = $b;
+// }
+// echo "<pre>";
+// var_dump($c);
+// echo "</pre>";
+// die();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,37 +55,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive" style="margin-left: 25rem;">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link rounded" href="#about">Favorite</a>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
-            <div class="dropdown">
-              <a class="nav-link rounded coba1" data-bs-toggle="dropdown" href="/" class>
-                Lainnya&#9662;
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="nav-link" href="#">Pusat Bantuan </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Blog Mamikos
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">
-                    Syarat dan Ketentuan</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item mx-0 mx-lg-1">
             <div class="dropdown">
               <a class="user-profil" data-bs-toggle="dropdown" href="/">
                 <img src="https://mamikos.com/general/img/pictures/navbar/ic_profile.svg" alt="">
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="nav-link" href="profil_user/profile.php">Profil </a>
+                  <a class="nav-link" href="../profil_user/profile.php">Profil </a>
                 </li>
                 <li>
                   <a class="nav-link" href="#">
@@ -85,12 +79,22 @@
   <!-- Detail Kos -->
   <div class="container-fluid text-light  py-2">
     <div class="row px-5">
-      <div class="col-8 ">
-        <img class="rounded" style="height: 520px; width:fit-content;" src="img/Kos1Gambar1.jpg" alt="">
+      <div class="col-8">
+        <div style="height: 520px; overflow: hidden;">
+          <img class="rounded" style="height: 100%;" src="img/Kos1Gambar1.jpg" alt="">
+        </div>
       </div>
       <div class="col-4">
-        <div class="img mb-3"> <img class="rounded" style="height:250px;" src="img/Kos1Gambar2.jpg" alt=""> </div>
-        <div class="img mb-3"> <img class="rounded" style="height:250px;" src="img/Kos1Gambar3.jpg" alt=""> </div>
+        <div class="img mb-3">
+          <div style="height: 250px; overflow: hidden;">
+            <img class="rounded" style="height: 100%; width: auto;" src="img/Kos1Gambar2.jpg" alt="">
+          </div>
+        </div>
+        <div class="img mb-3">
+          <div style="height: 250px; overflow: hidden;">
+            <img class="rounded" style="height: 100%; width: auto;" src="img/Kos1Gambar3.jpg" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -99,7 +103,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col -8">
+      <div class="col-8">
 
         <!-- Tombol Foto-->
         <div>
@@ -158,9 +162,6 @@
             <span class="px-5">
               <li>
                 <button class="rounded " style="box-shadow: gray; background:white;font-size:smaller;height:40px;width:130px;"><i class="fa-solid fa-heart"></i> Simpan</button>
-              </li>
-              <li>
-                <button class="rounded" style="box-shadow: gray; background:white;font-size:smaller; height:40px;width:130px;"><i class="fa-solid fa-share-nodes"></i> Bagikan</button>
               </li>
             </span>
           </ul>
@@ -333,22 +334,18 @@
         <!-- Cerita Pemilik Tentang Kos -->
         <h3> Cerita Pemilik Tentang Kos Ini </h3> <br>
         <div style="text-align: justify;">
-          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">
-            Kost ini terdiri dari 2 lantai. Tipe kamar A berada di lantai 2. Semua kamar di tipe ini memiliki jendela yang menghadap secara langsung ke arah koridor.
-            <br><br>
-            Tersedia juga layanan pembersihan AC secara rutin setiap 3 bulan sekali. Apabila Anda membutuhkan bantuan, Anda bisa menghubungi penjaga yang bertugas dari pukul 08.00-18.00 WIB.
-            <br><br>
-            Informasi fasilitas : <br>
-            Daya listrik : 5500 VA (Pascabayar) <br>
-            Sumber Air : PAM. <br>
-            Wifi : Indihome 10 Mbps. <br>
-            Kapasitas parkir : 10 motor, 4 mobil, dan 10 sepeda.
-            <br><br>
-            Biaya tambahan: <br>
-            Bisa BERDUA +300 Ribu.
-            <br><br>
-            Kost ini terletak 1 menit dari jalan raya dan akses jalan yang dapat dilalui oleh mobil. Berlokasi 4 menit dari Universitas Gadjah Mada, 10 menit dari Universitas Negeri Yogyakarta, dan 12 menit dari Hartono Mall.
-          </p>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Kost ini terdiri dari 2 lantai. Tipe kamar A berada di lantai 2. Semua kamar di tipe ini memiliki jendela yang menghadap secara langsung ke arah koridor.</p> <br><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Tersedia juga layanan pembersihan AC secara rutin setiap 3 bulan sekali. Apabila Anda membutuhkan bantuan, Anda bisa menghubungi penjaga yang bertugas dari pukul 08.00-18.00 WIB.</p>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Informasi fasilitas : </p><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Daya listrik : 5500 VA (Pascabayar) </p><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Sumber Air : PAM. </p><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Wifi : Indihome 10 Mbps. </p><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Kapasitas parkir : 10 motor, 4 mobil, dan 10 sepeda.</p>
+          <br><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Biaya tambahan: </p><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Bisa BERDUA +300 Ribu.</p>
+          <br><br>
+          <p style="font-weight: 550;font-family:Verdana, Geneva, Tahoma, sans-serif;">Kost ini terletak 1 menit dari jalan raya dan akses jalan yang dapat dilalui oleh mobil. Berlokasi 4 menit dari Universitas Gadjah Mada, 10 menit dari Universitas Negeri Yogyakarta, dan 12 menit dari Hartono Mall.</p>
         </div><br>
 
 
@@ -599,70 +596,6 @@
           </div>
         </div>
 
-        <!--Review kedua-->
-        <div>
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
-                <div class="col-2"><img style="width:50px;height:50px;filter:grayscale();" src="img/Mamikos.png" alt=""></div>
-                <div class="col-10">
-                  <h5>Anonim</h5>
-                  <p>5 bulan yang lalu </p>
-                </div> <br>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <div class="row">
-                <div class="col-10"></div>
-                <div class="col-2"><button class="rounded " style="box-shadow: gray; background:white;font-size:smaller;height:30px;width:70px;"> <i class="fa-solid fa-star"></i>4.4</button></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p>Lumayan, ada cctv jadi aman, tempatnya di perumahan</p>
-        <div class="row">
-          <div style="border-left: 1px black solid; height:120px;width:0px;" class="col-2"></div>
-          <div class="col-10">
-            <h5>Balasan dari pemilik</h5>
-            <p>5 bulan yang lalu </p>
-            <p>Halo, Kakak. Terima kasih atas review dan ratingnya. Keamanan dan kenyamanan Anda merupakan prioritas bagi kami :)</p>
-          </div>
-        </div>
-
-        <!--Review ketiga-->
-        <div>
-          <div class="row">
-            <div class="col-6">
-              <div class="row">
-                <div class="col-2"><img style="width:50px;height:50px;filter:grayscale();" src="img/Mamikos.png" alt=""></div>
-                <div class="col-10">
-                  <h5>Anonim</h5>
-                  <p>7 bulan yang lalu </p>
-                </div> <br>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <div class="row">
-                <div class="col-10"></div>
-                <div class="col-2"><button class="rounded " style="box-shadow: gray; background:white;font-size:smaller;height:30px;width:70px;"> <i class="fa-solid fa-star"></i>4.9</button></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p>tempat nyaman, aman karna di cluster tidak berisik. pokoknya nyamana banget kos disini bapak ibunya kos ramah dekat dengan makanan, kampus ugm dan mall</p>
-        <div class="row">
-          <div style="border-left: 1px black solid; height:120px;width:0px;" class="col-2"></div>
-          <div class="col-10">
-            <h5>Balasan dari pemilik</h5>
-            <p>7 bulan yang lalu </p>
-            <p>Halo, Kakak. Terima kasih atas review dan ratingnya. Kami sangat senang mendengar Anda nyaman bersama kami :)</p>
-          </div>
-        </div>
-
         <hr>
 
         <!--Statistika -->
@@ -681,27 +614,7 @@
         </div><br>
         <h5><i class="fa-solid fa-calendar-check" style="color:#0f9530;"></i> 6189 transaksi berhasil</h5>
         <br>
-        <div class="row">
-          <div class="col-6">
-            <div class="row">
-              <div style="text-align:center;" class="col-6">
-                <h5><i class="fa-solid fa-stopwatch"></i>Booking Diproses</h5>
-                <p><b>± 2 jam</b></p>
-              </div>
-              <div style="text-align:center;" class="col-6">
-                <h5><i class="fa-solid fa-hand-holding-dollar"></i>Peluang Booking </h5>
-                <p><b> 93 %</b></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal Tentang Statistik-->
-
-
       </div>
-
-      <!-- sebelah kanan-->
       <div class="col-4 ">
         <div class="kanan px-2">
 
@@ -766,8 +679,6 @@
                     </div>
                   </div>
 
-
-
                 </div>
               </div>
             </div>
@@ -780,194 +691,118 @@
             <div class="card-body ">
               <br>
               <h4>Rp1.488.000 / bulan</h4>
-              <button style="border-color:green;width:145px;height:45px;" type="button" class="btn  me-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                <i class="fa-solid fa-calendar" style="color:#0f9530;"></i> Mulai Kos</button>
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Mulai Kos</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <!-- Kalender-->
-                      <div>
-                        <div>
-                          <h4> <i class="fa-solid fa-clipboard "></i> Waktu mulai ngekos terdekat:</h4>
-                          <h6>Bisa di hari H setelah pengajuan sewa.</h6>
+
+              <div class="blok px-4">
+                <!-- Tanya -->
+                <div class="box py-3">
+
+                  <!-- Dalam Modal-->
+                  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">Hubungi Kos</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div>
-                          <h4> <i class="fa-solid fa-clipboard "></i> Waktu mulai ngekos terjauh:</h4>
-                          <h6>1 bulan setelah pengajuan sewa.</h6>
-                        </div> <br>
-                      </div>
-                      <form action="/action_page.php">
-                        <label for="kalender" style="font-size:larger; font-family:Verdana, Geneva, Tahoma, sans-serif;;"> <b>Pilih Tanggal</b></label>
-                        <input type="date" id="kalender" name="kalender" style="padding: 8px;border:1px solid #ccc;border-radius:4px;font-size:larger;font-weight:bold;">
-                        <input type="submit" value="Pilih" style="background-color: #054600; font-family:Verdana, Geneva, Tahoma, sans-serif;border-radius:4px;font-size:larger;">
-                      </form><br><br>
-                      <div>
-                        <p><i class="fa-solid fa-circle-exclamation" style="color: #1fb0e0;"></i> Pastikan tanggal yang kamu masukkan benar, karena kamu akan melakukan pembayaran setelah booking kos disetujui pemilik.</p>
-                      </div>
-                    </div>
+                        <div class="modal-body">
+                          <p style="color: #0f9530;">Anda akan terhubung dengan pemilik langsung melalui chatroom mamikos</p>
+                          <p><b> Pilih Pertanyaan</b></p>
 
-                  </div>
-                </div>
-              </div>
-
-              <!-- Menu Pilih lama Pembayaran-->
-              <button style="border-color:green;width:145px;height:45px;" class="btn  nav-item active dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Per Bulan
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">Per Bulan</label>
-                    </div>
-                  </a>
-
-                  <a class="dropdown-item" href="#">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1"> Per 3 Bulan </label>
-                    </div>
-                  </a>
-
-                  <a class="dropdown-item" href="#">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">Per 6 Bulan</label>
-                    </div>
-                  </a>
-
-                  <a class="dropdown-item" href="#">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">Per Tahun </label>
-                    </div>
-                  </a>
-
-                </div>
-              </button>
-            </div>
-
-            <div class="blok px-4">
-              <!-- Tanya -->
-              <div class="box py-3">
-                <button type="button" style="border-color:green;width:320px;height:45px;" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-                  <p style="color:#0f9530;"><i class="fa-solid fa-message" style="color: #0f9530;"></i> Tanya Pemilik</p>
-                </button>
-
-                <!-- Dalam Modal-->
-                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Hubungi Kos</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <p style="color: #0f9530;">Anda akan terhubung dengan pemilik langsung melalui chatroom mamikos</p>
-                        <p><b> Pilih Pertanyaan</b></p>
-
-                        <!--Radio-->
-                        <div style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:300px">
-                          <form action="proses.php" method="get">
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                              <label class="form-check-label" for="flexRadioDefault1">
-                                Saya butuh cepat nih. Bisa booking sekarang?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                              <label class="form-check-label" for="flexRadioDefault2">
-                                Ada diskon untuk kos ini?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                              <label class="form-check-label" for="flexRadioDefault3">
-                                Saya ingin survei dulu
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-                              <label class="form-check-label" for="flexRadioDefault4">
-                                Masih ada kamar?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
-                              <label class="form-check-label" for="flexRadioDefault5">
-                                Alamat kos di mana?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
-                              <label class="form-check-label" for="flexRadioDefault6">
-                                Cara menghubungi pemilik?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
-                              <label class="form-check-label" for="flexRadioDefault7">
-                                Boleh tanya-tanya dulu?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
-                              <label class="form-check-label" for="flexRadioDefault8">
-                                Bisa pasutri?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
-                              <label class="form-check-label" for="flexRadioDefault9">
-                                Boleh bawa hewan?
-                              </label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
-                              <label class="form-check-label" for="flexRadioDefault10">
-                                Bisa sewa harian?
-                              </label>
-                            </div><br>
-                            <input class="btn btn-success" style="width:450px;" type='submit' name='tombol' value='Kirim' />
-                          </form><br>
-                          <p style="text-align: justify;font-size:smaller;">Dengan mengirim pesan, anda menyetujui untuk berkomunikasi dengan pemilik hanya melalui chatroom mamikos untuk melindungi pengguna kami. </p>
+                          <!--Radio-->
+                          <div style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:300px">
+                            <form action="proses.php" method="get">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Saya butuh cepat nih. Bisa booking sekarang?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Ada diskon untuk kos ini?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                <label class="form-check-label" for="flexRadioDefault3">
+                                  Saya ingin survei dulu
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                <label class="form-check-label" for="flexRadioDefault4">
+                                  Masih ada kamar?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                                <label class="form-check-label" for="flexRadioDefault5">
+                                  Alamat kos di mana?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                                <label class="form-check-label" for="flexRadioDefault6">
+                                  Cara menghubungi pemilik?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                                <label class="form-check-label" for="flexRadioDefault7">
+                                  Boleh tanya-tanya dulu?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                                <label class="form-check-label" for="flexRadioDefault8">
+                                  Bisa pasutri?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault9">
+                                <label class="form-check-label" for="flexRadioDefault9">
+                                  Boleh bawa hewan?
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault10">
+                                <label class="form-check-label" for="flexRadioDefault10">
+                                  Bisa sewa harian?
+                                </label>
+                              </div><br>
+                              <input class="btn btn-success" style="width:450px;" type='submit' name='tombol' value='Kirim' />
+                            </form><br>
+                            <p style="text-align: justify;font-size:smaller;">Dengan mengirim pesan, anda menyetujui untuk berkomunikasi dengan pemilik hanya melalui chatroom mamikos untuk melindungi pengguna kami. </p>
+                          </div>
                         </div>
-                      </div>
 
+                      </div>
                     </div>
                   </div>
+
                 </div>
 
+                <!--Ajukan Sewa-->
+                <div>
+                  <button class="btn btn-success" style="border-color:green;width:320px;height:45px;">Ajukan Sewa</button>
+                </div>
               </div>
+              <br><br>
 
-              <!--Ajukan Sewa-->
-              <div>
-                <button class="btn btn-success" style="border-color:green;width:320px;height:45px;">Ajukan Sewa</button>
-              </div>
             </div>
+
             <br><br>
 
           </div>
-
-          <br><br>
-
         </div>
       </div>
     </div>
-  </div>
-  </div>
 
-  <br><br>
+    <br><br>
 
-  <script src="https://kit.fontawesome.com/bc3cf86588.js" crossorigin="anonymous"></script>
-  <script src="js/bootstrap.js"></script>
+    <script src="https://kit.fontawesome.com/bc3cf86588.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>

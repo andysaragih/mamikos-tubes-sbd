@@ -5,8 +5,8 @@
                 <div class="d-flex col-12 p-0">
                     <div class="image-user col-6" style="background-image: url('assets/img/default-user-image.png');"></div>
                     <div class="profile col-6">
-                        <h1>Andy Saragih</h1>
-                        <a href="edit-profile.php" class="btn btn-outline-success" type="submit" name="" style="margin-top: 1rem; width: 7em;">Edit Profil</a>
+                        <h1><?= $_SESSION['nama']; ?></h1>
+                        <a href="edit-profile.php?no_hp_user=<?= $_SESSION['nohp']; ?>" class="btn btn-outline-success" type="submit" name="" style="margin-top: 1rem; width: 7em;">Edit Profil</a>
                     </div>
                 </div>
             </div>

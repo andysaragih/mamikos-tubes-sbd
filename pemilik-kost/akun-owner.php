@@ -1,3 +1,10 @@
+<?php
+require_once '../function.php';
+if (empty($_SESSION['nohp'])) {
+    header("Location: ../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,33 +40,44 @@
                 <?php include 'sidebar.php' ?>
 
                 <div class="col-md-9" style="margin-top: 20px;">
-                    <div class="card" style="width: 25rem;">
-                        <div class="row" style="background-color: white;">
-                            <div class="col">
-                                <p class="card-top">Informasi Pribadi</p>
+
+                    <?php
+                    $id = $_SESSION['id_pemilik'];
+                    $query = "SELECT * FROM pemilik WHERE id_pemilik = $id";
+                    $sql = mysqli_query($conn, $query);
+
+                    foreach ($sql as $data) {
+                    ?>
+                        <div class="card" style="width: 25rem;">
+                            <div class="row" style="background-color: white;">
+                                <div class="col">
+                                    <p class="card-top">Informasi Pribadi</p>
+                                </div>
+                                <div class="col">
+                                    <a href="settings-owner.php?id_pemilik=<?=$id;?>" class="btn btn-primary">Ubah</a>
+                                </div>
                             </div>
-                            <div class="col">
-                                <a href="settings-owner.php" class="btn btn-primary">Ubah</a>
+                            <div class="row">
+                                <p class="bg-c-text--body-1 mb-0">Nama Lengkap</p>
+                                <p class="bg-c-text--body-2"><?= $data['nama_pemilik']; ?></p>
+                            </div>
+                            <div class="row">
+                                <p class="bg-c-text--body-1 mb-0">Nomor Handphone</p>
+                                <p class="bg-c-text--body-2"><?= $data['no_hp_pemilik']; ?></p>
+                            </div>
+                            <div class="row">
+                                <p class="bg-c-text--body-1 mb-0">Password</p>
+                                <p class="bg-c-text--body-2"><?= $data['password']; ?></p>
+                            </div>
+                            <div class="row">
+                                <p class="bg-c-text--body-1 mb-0">Email</p>
+                                <p class="bg-c-text--body-2"><?= $data['email_pemilik']; ?></p>
                             </div>
                         </div>
-                        <div class="row">
-                            <p class="bg-c-text--body-1 mb-0">Nama Lengkap</p>
-                            <p class="bg-c-text--body-2">Andy Septiawan Saragih</p>
-                        </div>
-                        <div class="row">
-                            <p class="bg-c-text--body-1 mb-0">Nomor Handphone</p>
-                            <p class="bg-c-text--body-2">081361775757</p>
-                        </div>
-                        <div class="row">
-                            <p class="bg-c-text--body-1 mb-0">Password</p>
-                            <p class="bg-c-text--body-2">xxxxxxxx</p>
-                        </div>
-                        <div class="row">
-                            <p class="bg-c-text--body-1 mb-0">Email</p>
-                            <p class="bg-c-text--body-2">andy39saragih@gmail.com</p>
-                        </div>
-                    </div>
+
+                    <?php } ?>
                 </div>
+
             </div>
         </div>
     </body>

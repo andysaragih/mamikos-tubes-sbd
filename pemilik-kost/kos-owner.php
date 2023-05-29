@@ -1,3 +1,13 @@
+<?php
+require_once '../function.php';
+if (empty($_SESSION['nohp'])) {
+    header("Location: ../index.php");
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,43 +36,51 @@
 <body id="page-top">
     <!-- Navigation-->
     <?php include 'navbar.php' ?>
+    <div class="container-fluid">
+        <div class="row">
+            <?php include 'sidebar.php' ?>
 
+            <div class="col-md-9">
+                <div class="card-container">
+                    <div class="row">
+                        <?php
+                        $id = $_SESSION['id_pemilik'];
+                        $query = "SELECT nama_kos, tipe_kamar, jenis_kos, alamat_kos, kec_kos, kab_kota_kos FROM kos WHERE id_pemilik = $id";
+                        $sql = mysqli_query($conn, $query);
 
-    <body id="page-top">
+                        foreach ($sql as $data) :
+                        ?>
+                            <div class="col-md-5">
+                                <div class="kos-card mx-3 mt-3">
+                                    <div class="kos-card__text">
+                                        <div>
+                                            <span class="kos-card__gender--m">Kos <?= $data['jenis_kos']; ?> </span>
+                                        </div>
+                                        <div class="kos-card__title">
+                                            <p><?= $data['nama_kos']; ?> <?= $data['tipe_kamar']; ?> <?= $data['kec_kos']; ?> <?= $data['kab_kota_kos']; ?> </p>
+                                        </div>
+                                        <div class="kos-card__address">
+                                            <p><?= $data['alamat_kos'] ?></p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/img/portfolio/submarine.png" class="kos-card__img" alt="" srcset="">
+                                    <hr>
+                                    <div class="kos-card-actions mt-3">
+                                        <button type="submit" name="btnHapus" class="btn btn-danger">Hapus Kos</button>
+                                        <a type="submit" name="btnDetail" class="btn btn-secondary" href="../kos/detail-kos.php">Detail Kos</a>
+                                        <a type="submit" name="btnUpdate" class="btn btn-primary" href="">Update Kos</a>
+                                    </div>
 
-        <div class="container-fluid">
-            <div class="row">
-                <?php include 'sidebar.php' ?>
-                <div class="kos-card mx-3 mt-3">
-                    <div class="kos-card__text">
-                        <div>
-                            <span class="kos-card__gender--m">Kos Putra</span>
-                        </div>
-                        <div class="kos-card__title">
-                            <p>Kos Ugal Tipe A Medan Baru Medan</p>
-                        </div>
-                        <div class="kos-card__address">
-                            <p>Jln In Aja Dulu, Kec. Medan Baru, Medan</p>
-                        </div>
+                                </div>
+
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <img src="assets/img/portfolio/submarine.png" class="kos-card__img" alt="" srcset="">
-                    <div class="kos-card__link-section">
-                        <div class="kos-card__status-name--ditolak">Data Kos ditolak</div>
-                        <div class="kos-card__status-name--ditolak">Mohon perbaiki data kos</div>
-                    </div>
-                    <hr>
-                    <div class="kos-card-actions mt-3">
-                        <button type="submit" name="btnHapus" class="btn btn-danger">Hapus Kos</button>
-                        <a type="submit" name="btnDetail" class="btn btn-secondary" href="../kos/detail-kos.php">Detail Kos</a>
-                        <a type="submit" name="btnUpdate" class="btn btn-primary" href="">Update Kos</a>
-                    </div>
-
                 </div>
             </div>
+
         </div>
-    </body>
-
-
+    </div>
     <!-- Masthead-->
 
     <!-- Portfolio Section-->

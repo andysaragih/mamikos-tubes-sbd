@@ -1,3 +1,12 @@
+<?php
+
+require_once '../function.php';
+if (isset($_POST["submit"])) {
+    login_pencari($_POST);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,27 +44,6 @@
                 Login Pencari Kos</h1>
             <!-- Icon Divider-->
             <div>
-                <form action="" method="POST">
-                    <button type="submit" class="button-gugel-fb">
-                        <img src="https://mamikos.com/assets/icons/svg/ic_google.svg" alt="ic_gugel" class="icon-gugel">
-                        <span class="icon-gugel1">Sign in with Google
-                        </span>
-                    </button>
-                </form>
-                <form action="" method="POST">
-                    <button type="submit" class="button-gugel-fb">
-                        <img src="https://mamikos.com/assets/icons/svg/ic_facebook.svg" alt="ic_gugel" class="icon-gugel">
-                        <span class="icon-gugel1">Sign in with Facebook
-                        </span>
-                    </button>
-                </form>
-                <form action="" method="POST">
-                    <button type="submit" class="button-apple button-gugel-fb">
-                        <img src="https://mamikos.com/assets/icons/svg/ic_apple.svg" alt="ic_gugel" class="icon-gugel">
-                        <span class="icon-gugel1">Sign in with Apple
-                        </span>
-                    </button>
-                </form>
             </div>
             <div class="strike">
                 <span class="strike1">
@@ -64,25 +52,23 @@
             </div>
 
             <!-- Masthead Subheading-->
-            <form action="submit-form.php" method="post">
+            <form action="" method="post">
 
                 <label for="phone-number">Nomor Handphone</label> <br>
                 <div class="phone-number1" role="textbox" aria-required="true" aria-invalid="false">
-                    <input type="tel" name="Nomor Handphone" maxlength="14" placeholder="Nomor Handphone" required="required" class="phone-number2">
+                    <input type="tel" name="nohp" maxlength="14" placeholder="Nomor Handphone" required="required" class="phone-number2">
                 </div>
                 <br>
 
                 <label for="phone-number">Password</label> <br>
                 <div class="phone-number1" role="textbox" aria-required="true" aria-invalid="false">
-                    <input type="password" name="Password" maxlength="14" placeholder="Masukkan Password" required="required" class="phone-number2">
+                    <input type="password" name="password" maxlength="14" placeholder="Masukkan Password" required="required" class="phone-number2">
                     <span class="password-toggle">
                         <!-- <i class="fa fa-eye-slash"></i> -->
                     </span>
                 </div><br>
 
-
-
-                <input class="divider-custom-daftar" type="submit" value="Login">
+                <input class="divider-custom-daftar" type="submit" name="submit" value="Login">
             </form><br>
 
             <p> Belum punya akun Mamikos? <a class="rata-kan-satu" href="../register/registrasi_pencari.php">Daftar sekarang</a>

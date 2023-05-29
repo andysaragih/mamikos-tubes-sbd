@@ -1,3 +1,14 @@
+<?php
+require_once '../function.php';
+if (empty($_SESSION['nohp'])) {
+    header("Location: ../index.php");
+}
+if (isset($_POST["submit"])) {
+    tambah_kost($_POST);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,302 +26,488 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles_owner.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-XA20rr3fBc6KYvK3Z9T/38+TmWJf8btdq3ygsQ2Fj+4W7Jkzv0EZP7oOzwZIuNEnzkBxOxJ+7Kf1I/yYV7L8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-Vc2V+94uGYlCjV7JYtY+8V7OhuJzZ+OcGkjtlNjNfBvmJpPz6gz/ajD5GhQ5us5uyJvUmQ9lEsoO+HnwblJx0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/tambahkos.css">
-
-
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/profiles.css">
 </head>
 
 <body id="page-top">
-    <div class="container-fluid vh-150">
-        <div class="row justify-content-center align-items-center">
-            <form action="" method="post">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="title" style="margin: 0;">Data Kos</h1>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h1 class="title">Silakan lengkapi data kos</h1>
-                                <p>Yuk, bantu calon penyewa mengetahui kamar kos yang akan
-                                    Anda sewakan.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Apa nama kos ini?</h2>
+    <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
+        <div class="container">
+            <a href="../index.php" class="logo-mamikos">
+                <img src="https://mamikos.com/assets/logo/svg/logo_mamikos_green_v2.svg" alt="Mamikos Logo" />
+            </a>
+            <button class="navbar-toggler text-uppercase font-weight-bold text-black rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+
+            <div class="card mb-3">
+                <h5 class="card-header">Data Pribadi</h5>
+                <div class="card-body bg-light">
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Nama Kos</strong></label>
                                 <p>Saran: Kos (spasi) Nama Kos, Tanpa Nama Kecamatan dan Kota</p>
-                                <input type="text" class="form-control w-50" required>
+
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control w-50" id="name" name="nama_kos" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Tipe Kamar</h1>
-                                    <p>Saran: Tipe A atau VVIP atau Executive</p>
-                                    <input type="text" class="form-control w-50" required>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Tipe Kamar</strong></label>
+                                <p>Saran: Tipe A atau VVIP atau Executive</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control w-50" id="tipe" name="tipe_kamar" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Disewakan untuk putra/putri?</h1>
-                                    <p>Silakan pilih jenis kos yang sesuai</p>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Putra
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Putri
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Campuran
-                                        </label>
-                                    </div>
+                        <div class="row form-group mb-3 align-items-center">
+                            <div class="col-4 text-end">
+                                <label for="kota"><strong>Jenis Kos</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <select class="form-select w-50" aria-label="Default select example" name="jenis_kos">
+                                    <option>Putra</option>
+                                    <option>Putri</option>
+                                    <option>Campuran</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Deskripsi Kos</h1>
-                                    <p>Ceritakan hal menarik tentang kos Anda.</p>
-                                    <div class="form">
-                                        <textarea class="form-control w-50" required></textarea>
-                                    </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Deskripsi Kos</strong></label>
+                                <p>Ceritakan hal menarik tentang kos Anda.</p>
+                            </div>
+                            <div class="col-8">
+                                <textarea class="form-control w-50" name="deskripsi_kos" required></textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Peraturan Kos</h1>
-                                    <p>Kos Anda tertib atau santai? Silakan tentukan aturan kos di sini. (opsional)</p>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="> 5 orang/ kamar" id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            > 5 orang/ kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Ada jam malam" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Ada jam malam
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Ada jam malam untuk tamu" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Ada jam malam untuk tamu
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Akses 24 jam" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Akses 24 jam
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Boleh bawa anak" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Boleh bawa anak
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Boleh bawa hewan" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Boleh bawa hewan
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Boleh pasutri" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Boleh pasutri
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Denda kerusakan barang kos" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Denda kerusakan barang kos
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Dilarang membawa hewan" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Dilarang membawa hewan
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Dilarang menerima tamu" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Dilarang menerima tamu
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Dilarang merokok di kamar" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Dilarang merokok di kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Khusus Mahasiswa" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Khusus Mahasiswa
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Khusus karyawan" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Khusus karyawan
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Lawan jenis dilarang ke kamar" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Lawan jenis dilarang ke kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Maksimal 1 orang/kamar" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Maksimal 1 orang/kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Maksimal 2 orang/kamar" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Maksimal 2 orang/kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Maksimal 3 orang/kamar" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Maksimal 3 orang/kamar
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tambah biaya untuk alat elektronik" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tambah biaya untuk alat elektronik
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tamu bebas berkunjung" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tamu bebas berkunjung
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tamu boleh menginap" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tamu boleh menginap
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tamu dilarang menginap" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tamu dilarang menginap
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tamu menginap dikenakan biaya" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tamu menginap dikenakan biaya
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Termasuk listrik" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Termasuk listrik
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tidak boleh bawa anak" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tidak boleh bawa anak
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tambah biaya untuk alat elektronik" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tambah biaya untuk alat elektronik
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Tidak untuk pasutri" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Tidak untuk pasutri
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Wajib sertakan KTP saat pengajuan sewa" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Wajib sertakan KTP saat pengajuan sewa
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Wajib sertakan buku nikah saat pengajuan sewa" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Wajib sertakan buku nikah saat pengajuan sewa
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Wajib sertakan kartu keluarga saat pengajuan sewa" id="flexCheckChecked">
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            Wajib sertakan kartu keluarga saat pengajuan sewa
-                                        </label>
-                                    </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Peraturan Kos</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="> 5 orang/ kamar" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        > 5 orang/ kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Ada jam malam" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Ada jam malam
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Akses 24 jam" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Akses 24 jam
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Boleh bawa hewan" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Boleh bawa hewan
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Dilarang merokok di kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Dilarang merokok di kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Lawan jenis dilarang ke kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Lawan jenis dilarang ke kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Maksimal 1 orang/kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Maksimal 1 orang/kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Maksimal 2 orang/kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Maksimal 2 orang/kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Maksimal 3 orang/kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Maksimal 3 orang/kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Maksimal 4 orang/kamar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Maksimal 4 orang/kamar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Tamu bebas berkunjung" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Tamu bebas berkunjung
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Tamu boleh menginap" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Tamu boleh menginap
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Termasuk listrik" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Termasuk listrik
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Wajib sertakan KTP saat pengajuan sewa" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Wajib sertakan KTP saat pengajuan sewa
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Wajib sertakan kartu keluarga saat pengajuan sewa" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Wajib sertakan kartu keluarga saat pengajuan sewa
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="title-2">Kapan kos ini dibangun?</h1>
-                                    <p>Pilih tahun bangunan atau terakhir renovasi.</p>
-                                    <input type="number" min="1950" class="form-control w-50" required>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Kapan kos ini dibangun?</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="1950" name="tahun_pembangunan_kos" class="form-control w-50" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col mb-3">
-                                <h2 class="title-2">Catatan lainnya</h1>
-                                    <p>(opsional)</p>
-                                    <div class="form">
-                                        <textarea class="form-control w-50"></textarea>
-                                    </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Alamat Kos</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <textarea class="form-control w-50" name="alamat_kos" required></textarea>
                             </div>
                         </div>
-                        <div class="row mt-3" style="background-color: white;">
-                            <div class="col-md-5">
-                                <a class="btn btn-success" href="">Kembali</a>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Provinsi</strong></label>
                             </div>
-                            <div class="col">
-                                <a class="btn btn-primary" href="tambahkos-alamat.php">Lanjutkan</a>
+                            <div class="col-8">
+                                <input type="text" name="provinsi_kos" class=" form-control w-50" required>
                             </div>
                         </div>
-                    </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Kabupaten/Kota</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="kab_kota_kos" class="form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Kecamatan</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="kec_kos" class="form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Latitude</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="latitude" class=" form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Longitude</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="longitude" class="form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Foto Kos</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="file" class="input-image" accept="image/*" name="gambar_kos_depan" class=" form-control w-50"> (Tampak Depan) <br>
+                                <input type="file" class="input-image" accept="image/*" name="gambar_kos_dalam" class=" form-control w-50"> (Tampak Dalam)
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Foto Kamar</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="file" class="input-image" name="gambar_kamar_depan" class=" form-control w-50"> (Kamar depan) <br>
+                                <input type="file" class="input-image" name="gambar_kamar_dalam" class=" form-control w-50"> (Kamar dalam) <br>
+                                <input type="file" class="input-image" name="gambar_kamar_mandi" class=" form-control w-50"> (Kamar mandi)
+
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Fasilitas Umum</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value=" CCTV" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        CCTV
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Kulkas" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Kulkas
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Dispenser" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Dispenser
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Dapur" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Dapur
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="K. Mandi Luar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        K. Mandi Luar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="TV" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        TV
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Laundry" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Laundry
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="WIFI" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        WIFI
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Mesin Cuci" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Mesin Cuci
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Penjaga Kos" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Penjaga Kos
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Parkir Mobil" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Parkir Mobil
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_umum[]" value="Parkir Motor" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Parkir Motor
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Fasilitas Kamar</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="AC" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        AC
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Kasur" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Kasur
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Kipas Angin" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Kipas Angin
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Kursi" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Kursi
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Lemari Baju" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Lemari Baju
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Meja" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Meja
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="TV" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        TV
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="K. Mandi Dalam" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        K. Mandi Dalam
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="K. Mandi Luar" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        K. Mandi Luar
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Kloset Duduk" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Kloset Duduk
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="fasilitas_kamar[]" value="Kloset Jongkok" id="flexCheckChecked">
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Kloset Jongkok
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Ukuran kamar</strong></label>
+                            </div>
+                            <div class="col-8 d-flex">
+                                <input type="number" min="0" max "10 " class="form-control w-25" name="panjang_kamar" required> x
+                                <input type="number" min="0" max "10 " class="form-control w-25" name="lebar_kamar" required>
+                            </div>
+                        </div>
+                        <div class=" row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Jumlah total kamar</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" max="500" name="jumlah_kamar" class=" form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Jumlah kamar tersedia</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" max="500" name="sisa_kamar" class="form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Harga per bulan (Rp)</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" max="200000" name="harga_bulan" class=" form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Nama Pemilik Rekening</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control w-50" id="nameowner" name="nama_pemilik_rekening" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Pilih Bank</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <select class="form-select w-50" name="nama_bank" aria-label=" Default select example">
+                                    <option selected>----Nama Bank----</option>
+                                    <option value="1">Bank BNI</option>
+                                    <option value="2">Bank BRI</option>
+                                    <option value="3">BCA</option>
+                                    <option value="3">Mandiri</option>
+                                    <option value="3">Dana</option>
+                                    <option value="3">OVO</option>
+                                    <option value="3">Shopeepay</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Nomor Rekening</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control w-50" id="norek" name="no_rek" required>
+                            </div>
+                        </div>
+                        <button class=" btn btn-outline-danger btn-lg" type="reset">Batal</button>
+                        <button class="btn btn-outline-secondary btn-lg" type="submit" name="submit">Simpan</button>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
-    <!-- Masthead-->
-
-    <!-- Portfolio Section-->
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="js/rotasi.js"></script>
 </body>
+
+
+<!-- Masthead-->
+
+<!-- Portfolio Section-->
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="js/rotasi.js"></script>
 
 </html>

@@ -1,0 +1,291 @@
+.image-user {
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 100%;
+    height: 100px;
+    margin-right: 1em;
+    position: relative;
+    top: 0;
+    width: 100px;
+}
+
+#mainNav .navbar-brand {
+    color: #fff;
+  }
+  #mainNav .navbar-nav {
+    margin-top: 1rem;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link.active {
+    color: white;
+  }
+  #mainNav .navbar-toggler {
+    font-size: 80%;
+    padding: 0.8rem;
+  }
+  
+  @media (min-width: 992px) {
+    #mainNav {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+    }
+    #mainNav .navbar-brand {
+      font-size: 1.75em;
+      transition: font-size 0.3s;
+    }
+    #mainNav .navbar-nav {
+      margin-top: 0;
+    }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+      color: #fff;
+      background: white;
+    }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+      color: #fff;
+      background: white;
+    }
+  
+    #mainNav.navbar-shrink {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+      font-size: 1.5em;
+    }
+  }
+
+  #mainNav {
+    font-weight: 700;
+  }
+  
+  #mainNav .navbar-brand {
+    color: #fff;
+  }
+  #mainNav .navbar-nav {
+    margin-top: 1rem;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
+    color: black;
+  }
+  #mainNav .navbar-nav li.nav-item a.nav-link.active {
+    color: white;
+  }
+  #mainNav .navbar-toggler {
+    font-size: 80%;
+    padding: 0.8rem;
+  }
+  
+  @media (min-width: 992px) {
+    #mainNav {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      transition: padding-top 0.3s, padding-bottom 0.3s;
+    }
+    #mainNav .navbar-brand {
+      font-size: 1.75em;
+      transition: font-size 0.3s;
+    }
+    #mainNav .navbar-nav {
+      margin-top: 0;
+    }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+      color: #fff;
+      background: white;
+    }
+    #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
+      color: #fff;
+      background: white;
+    }
+  
+    #mainNav.navbar-shrink {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    #mainNav.navbar-shrink .navbar-brand {
+      font-size: 1.5em;
+    }
+  }
+
+.user-profil{
+    align-items: center;
+      background: #e8e8e8;
+      border-radius: 50%;
+      display: contents;
+      height: 40px;
+      justify-content: center;
+      overflow: hidden;
+      width: 40px;
+      align-items: center;
+      height: 100%;
+}
+
+.profile h1, .profile p {
+    color: #484848;
+    font-weight: 700;
+}
+
+.profile h1 {
+    font-size: 1.3em;
+    margin: 1rem 0 0.2rem;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    padding: 0;
+    border-bottom: 1px solid #dbdbdb;
+    list-style: none;
+    padding: 18px 0;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #9e9e9e;
+    font-size: large;
+}
+
+li {
+    border-bottom: 1px solid #dbdbdb;
+    list-style: none;
+    padding: 18px 0;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #9e9e9e;
+    font-size: large;
+}
+
+a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #9e9e9e;
+    font-size: large;
+}
+
+.span.title-link {
+    color: #9e9e9e;
+    font-size: large;
+}
+
+.span.title-link.link-active {
+    color: #2e2d39!important;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+a:link {
+    color: #9e9e9e; /* warna teks untuk link tidak aktif */
+    text-decoration: none;
+}
+  
+a:visited {
+    color: #9e9e9e;
+    text-decoration: none;
+}
+  
+a:hover {
+    color: #2e2d39; /* warna teks untuk link saat dihover */
+    text-decoration: none;
+}
+  
+a:active {
+    color: #000000; /* warna teks untuk link saat diaktifkan */
+    font-weight: bold; /* teks menjadi bold saat diaktifkan */
+}
+
+.bg-c-card--lined {
+    box-shadow: none;
+    border-width: 0;
+    box-shadow: inset 0 0 0 1px #e8e8e8;
+}
+
+.bg-c-card--light {
+    background-color: #fff;
+    color: #404040;
+}
+
+.bg-c-card--md {
+    padding: 24px 24px;
+}
+
+.bg-c-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,.08), 0 -1px 4px rgba(0,0,0,.04);
+    border-radius: 8px;
+}
+
+.user-kost-main__title{
+    margin-bottom: 24px;
+}
+
+.bg-c-text--heading-5 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 28px;
+    font-family: Lato,sans-serif;
+}
+
+.bg-c-text {
+    margin: 0;
+    padding: 0;
+}
+
+.user-kost{
+    margin: 0 auto;
+    width: 500px;
+    min-height: 500px;
+    max-height: 600px;
+    padding: 32px 0 48px;
+}
+
+.user-kost-empty__title {
+    margin-bottom: 24px;
+}
+
+.bg-c-text--heading-4 {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 32px;
+    font-family: Lato,sans-serif;
+}
+
+.user-kost-empty__description[data-v-d1442926] {
+    margin-bottom: 20px;
+}
+
+.bg-c-text--body-2 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-family: Lato,sans-serif;
+}
+  

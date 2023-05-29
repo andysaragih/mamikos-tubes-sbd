@@ -9,31 +9,7 @@
         </button>
         <div class="collapse navbar-collapse mx-auto" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link rounded" href="#about">Favorite</a>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <div class="dropdown">
-                        <a class="nav-link rounded coba1" data-bs-toggle="dropdown" href="/" class>
-                            Lainnya&#9662;
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="nav-link" href="#">Pusat Bantuan </a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#">
-                                    Blog Mamikos
-                                </a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#">
-                                    Syarat dan Ketentuan</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item mx-0 mx-lg-1">
+                <li class="nav-item ml-auto mx-lg-1">
                     <div class="dropdown">
                         <a class="user-profil" data-bs-toggle="dropdown" href="/">
                             <img src="https://mamikos.com/general/img/pictures/navbar/ic_profile.svg" alt="">
@@ -43,7 +19,7 @@
                                 <a class="nav-link" href="profil_user/profile.php">Profil </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="logout.php">
                                     Keluar
                                 </a>
                             </li>
