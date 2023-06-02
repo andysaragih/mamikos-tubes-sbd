@@ -15,9 +15,8 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Registrasi Pemilik Kos</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Registrasi Pemilik Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -34,7 +33,7 @@ if (isset($_POST["submit"])) {
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
         <div class="container">
-            <a href="/" class="logo-mamikos">
+            <a href="../index.php" class="logo-mamikos">
                 <img src="https://mamikos.com/assets/logo/svg/logo_mamikos_green_v2.svg" alt="Mamikos Logo">
             </a>
             <button class="navbar-toggler text-uppercase font-weight-bold text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,21 +41,6 @@ if (isset($_POST["submit"])) {
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <div class="dropdown">
-                            <a class="nav-link rounded" data-bs-toggle="dropdown" href="/">Cari Apa? &#9662;</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link  " href="#"><i class="fa fa-bed me-2"></i>Kos</a></li>
-                                <li><a class="nav-link" href="#"> <i class="fa fa-home me-2"></i>Kos Singgahsini & Apik</a></li>
-                                <li><a class="nav-link" href="#"> <i class="fa fa-font me-2"></i>Kos Andalan</a></li>
-                                <li><a class="nav-link" href="#"> <i class="fa fa-hotel fa-fw me-2"></i>Apartemen</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded" href="#about">Pusat bantuan</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded" href="#contact">Syarat dan ketentuan</a></li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -68,7 +52,7 @@ if (isset($_POST["submit"])) {
             <img class=" alt=" ..." />
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0"><button class="arrow-button">
-                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    <a href="../login/login_pemilik.php"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </button>
                 Daftar Akun Pemilik Kos</h1>
             <!-- Icon Divider-->
@@ -108,7 +92,7 @@ if (isset($_POST["submit"])) {
                 <button class="divider-custom-daftar" type="submit" name="submit">Daftar</button>
             </form><br>
 
-            <p> Sudah punya akun Mamikos? <a class="rata-kan-satu">Masuk di sini</a>
+            <p> Sudah punya akun Mamikos? <a href="../login/login_pemilik.php" class="rata-kan-satu">Masuk di sini</a>
             </p>
 
         </div>

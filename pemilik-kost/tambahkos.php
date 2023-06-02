@@ -17,9 +17,8 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Freelancer - Start Bootstrap Theme</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Owner Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -37,7 +36,7 @@ if (isset($_POST["submit"])) {
 <body id="page-top">
     <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
         <div class="container">
-            <a href="../index.php" class="logo-mamikos">
+            <a href="index.php" class="logo-mamikos">
                 <img src="https://mamikos.com/assets/logo/svg/logo_mamikos_green_v2.svg" alt="Mamikos Logo" />
             </a>
             <button class="navbar-toggler text-uppercase font-weight-bold text-black rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -172,12 +171,6 @@ if (isset($_POST["submit"])) {
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Termasuk listrik" id="flexCheckChecked">
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Termasuk listrik
-                                    </label>
-                                </div>
-                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="peraturan_kos[]" value="Wajib sertakan KTP saat pengajuan sewa" id="flexCheckChecked">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         Wajib sertakan KTP saat pengajuan sewa
@@ -245,6 +238,15 @@ if (isset($_POST["submit"])) {
                             </div>
                             <div class="col-8">
                                 <input type="text" name="longitude" class="form-control w-50" required>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 align-items-center bg-light">
+                            <div class="col-4 text-end">
+                                <label for="name"><strong>Embed Map</strong></label>
+                                <a href="https://www.google.com/maps">Silahkan menuju Google Maps, Cari Embed Map Lokasi Anda</a>
+                            </div>
+                            <div class="col-8">
+                                <textarea class="form-control w-50" name="embed_map" required></textarea>
                             </div>
                         </div>
                         <div class="row form-group mb-3 align-items-center bg-light">
@@ -446,10 +448,21 @@ if (isset($_POST["submit"])) {
                         </div>
                         <div class="row form-group mb-3 bg-light">
                             <div class="col-4 text-end">
+                                <label for="listrik"><strong>Termasuk listrik</strong></label>
+                            </div>
+                            <div class="col-8">
+                                <select class="form-select w-50" aria-label="Default select example" name="listrik">
+                                    <option>Termasuk</option>
+                                    <option>Tidak Termasuk</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group mb-3 bg-light">
+                            <div class="col-4 text-end">
                                 <label for="name"><strong>Harga per bulan (Rp)</strong></label>
                             </div>
                             <div class="col-8">
-                                <input type="number" min="0" max="200000" name="harga_bulan" class=" form-control w-50" required>
+                                <input type="number" min="50000" name="harga_bulan" class=" form-control w-50" required>
                             </div>
                         </div>
                         <div class="row form-group mb-3 align-items-center bg-light">
@@ -467,13 +480,13 @@ if (isset($_POST["submit"])) {
                             <div class="col-8">
                                 <select class="form-select w-50" name="nama_bank" aria-label=" Default select example">
                                     <option selected>----Nama Bank----</option>
-                                    <option value="1">Bank BNI</option>
-                                    <option value="2">Bank BRI</option>
-                                    <option value="3">BCA</option>
-                                    <option value="3">Mandiri</option>
-                                    <option value="3">Dana</option>
-                                    <option value="3">OVO</option>
-                                    <option value="3">Shopeepay</option>
+                                    <option value="Bank BNI">Bank BNI</option>
+                                    <option value="Bank BRI">Bank BRI</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="Mandiri">Mandiri</option>
+                                    <option value="Dana">Dana</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="Shopeepay">Shopeepay</option>
                                 </select>
                             </div>
                         </div>

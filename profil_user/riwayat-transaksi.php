@@ -1,3 +1,10 @@
+<?php
+require_once '../function.php';
+
+$id = $_SESSION['id_user'];
+$tampil = "SELECT * FROM riwayat_transaksi WHERE id_user = '$id' ";
+$sql = mysqli_query($conn, $tampil);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +12,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Riwayat Transaksi| Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
     <!-- Font Awesome icons (free version)-->
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/d19e940ee3.js" crossorigin="anonymous"></script>
@@ -26,22 +34,24 @@
                         Riwayat Transaksi
                     </div>
                     <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nama Kos</h5>
-                                    <p class="card-text mb-0">Pembayaran</p>
-                                    <p class="card-text">Tanggal Pembayaran</p>
-                                    <p class="card-text my-0"><small class="text-muted">Check-in : 24 Mei</small></p>
-                                    <p class="card-text mt-0"><small class="text-muted">Selesai Sewa : 24 Juni </small></p>
-                                    <button class="btn btn-outline-secondary">Detail</button>
-                                    <button class="btn btn-outline-success">Review</button>
+                        <?php foreach ($sql as $data) { ?>
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="../pemilik-kost/uploads/<?= $data['gambar_kos'] ?>" style=" height: 7cm; width: 4cm;" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $data['nama_kos']; ?></h5>
+                                        <p class="card-text mb-0">Rp<?= $data['harga_kos']; ?></p>
+                                        <p class="card-text"><?= $data['tanggal_pembayaran'] ?></p>
+                                        <p class="card-text my-0"><small class="text-muted">Metode : <?= $data['metode_pembayaran'] ?></small></p>
+                                        <p class="card-text mt-0"><small class="text-muted">Invoice <?= $data['invoice'] ?> </small></p>
+                                        <a class="btn btn-outline-secondary" href="../kos/detail-kos.php?id=<?= $data['id_kos']; ?>">Detail</a>
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -55,7 +65,7 @@
         menuLinks.forEach(function(link) {
             // Tambahkan event listener untuk saat di-klik
             link.addEventListener('click', function() {
-                // Hapus kelas "active" dari semua elemen <a>
+                // Hapus kelas " active" dari semua elemen <a>
                 menuLinks.forEach(function(link) {
                     link.classList.remove('active');
                 });

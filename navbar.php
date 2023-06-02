@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
     <div class="container">
-        <a href="/" class="logo-mamikos">
+        <a href="mamikos.php" class="logo-mamikos">
             <img src="https://mamikos.com/assets/logo/svg/logo_mamikos_green_v2.svg" alt="Mamikos Logo" />
         </a>
         <button class="navbar-toggler text-uppercase font-weight-bold text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
                                 <a class="nav-link" href="profil_user/profile.php">Profil </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="logout.php">
+                                <a onclick="return confirm('Apakah yakin anda ingin keluar')" class="nav-link" href="logout.php">
                                     Keluar
                                 </a>
                             </li>

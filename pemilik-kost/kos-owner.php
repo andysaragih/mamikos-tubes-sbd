@@ -3,7 +3,8 @@ require_once '../function.php';
 if (empty($_SESSION['nohp'])) {
     header("Location: ../index.php");
 }
-
+if (isset($_POST["btnHapus"])) {
+}
 
 ?>
 
@@ -16,9 +17,8 @@ if (empty($_SESSION['nohp'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Freelancer - Start Bootstrap Theme</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Owner Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -45,7 +45,7 @@ if (empty($_SESSION['nohp'])) {
                     <div class="row">
                         <?php
                         $id = $_SESSION['id_pemilik'];
-                        $query = "SELECT nama_kos, tipe_kamar, jenis_kos, alamat_kos, kec_kos, kab_kota_kos FROM kos WHERE id_pemilik = $id";
+                        $query = "SELECT id_kos, nama_kos, tipe_kamar, jenis_kos, alamat_kos, kec_kos, kab_kota_kos, gambar_kos_depan FROM kos WHERE id_pemilik = $id";
                         $sql = mysqli_query($conn, $query);
 
                         foreach ($sql as $data) :
@@ -63,12 +63,14 @@ if (empty($_SESSION['nohp'])) {
                                             <p><?= $data['alamat_kos'] ?></p>
                                         </div>
                                     </div>
-                                    <img src="assets/img/portfolio/submarine.png" class="kos-card__img" alt="" srcset="">
+                                    <img src="uploads/<?= $data['gambar_kos_depan'] ?>" class="kos-card__img" alt="" srcset="">
                                     <hr>
                                     <div class="kos-card-actions mt-3">
-                                        <button type="submit" name="btnHapus" class="btn btn-danger">Hapus Kos</button>
-                                        <a type="submit" name="btnDetail" class="btn btn-secondary" href="../kos/detail-kos.php">Detail Kos</a>
-                                        <a type="submit" name="btnUpdate" class="btn btn-primary" href="">Update Kos</a>
+                                        <a onclick="return confirm('Apakah yakin anda ingin menghapus data')" class="btn btn-danger" href="deletekos.php?id=<?= $data['id_kos']; ?>">
+                                            Hapus Kos
+                                        </a>
+                                        <a type="submit" name="btnDetail" class="btn btn-secondary" href="detail-kos.php?id=<?= $data['id_kos']; ?>">Detail Kos</a>
+                                        <a type="submit" name="btnUpdate" class="btn btn-primary" href="editkos.php?id=<?= $data['id_kos']; ?>">Update Kos</a>
                                     </div>
 
                                 </div>

@@ -1,7 +1,16 @@
 <?php
 require_once '../function.php';
+
+$id = $_GET['id_pemilik'];
+$tampil = "SELECT * FROM pemilik WHERE id_pemilik = '$id'";
+$querytampil = mysqli_query($conn, $tampil);
+
 if (empty($_SESSION['nohp'])) {
     header("Location: ../index.php");
+}
+
+if (isset($_POST['submit'])) {
+    edit_pemilik($_POST);
 }
 ?>
 
@@ -13,9 +22,8 @@ if (empty($_SESSION['nohp'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Freelancer - Start Bootstrap Theme</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Owner Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -47,37 +55,39 @@ if (empty($_SESSION['nohp'])) {
                                 <p class="card-top">Ubah Informasi Pribadi</p>
                             </div>
                         </div>
-                        <form action="" method="post">
-                            <div class="row">
-                                <div class="col">
-                                    <p class="bg-c-text--body-1 mb-0">Nama Lengkap</p>
-                                    <input type="text" name="nama" id="nama_pemilik" class="form-control w-50" value="" required>
+                        <?php while ($edit = mysqli_fetch_array($querytampil)) { ?>
+                            <form action="" method="POST">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="bg-c-text--body-1 mb-0">Nama Lengkap</p>
+                                        <input type="text" name="nama_pemilik" id="nama_pemilik" class="form-control w-50" value="<?= $edit['nama_pemilik']; ?>" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="bg-c-text--body-1 mb-0">Nomor Handphone</p>
-                                    <input type="text" name="handphone" id="no_hp_pemilik" class="form-control w-50" value="" required>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="bg-c-text--body-1 mb-0">Nomor Handphone</p>
+                                        <input type="text" name="no_hp_pemilik" id="no_hp_pemilik" class="form-control w-50" value="<?= $edit['no_hp_pemilik']; ?>" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="bg-c-text--body-1 mb-0">Password</p>
-                                    <input type="password" name="password" id="password" class="form-control w-50" value="" required>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="bg-c-text--body-1 mb-0">Password</p>
+                                        <input type="password" name="password" id="password" class="form-control w-50" value="<?= $edit['password']; ?>" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="bg-c-text--body-1 mb-0">Email</p>
-                                    <input type="email" name="password" id="email_pemilik" class="form-control w-50" value="" required>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="bg-c-text--body-1 mb-0">Email</p>
+                                        <input type="email" name="email_pemilik" id="email_pemilik" class="form-control w-50" value="<?= $edit['email_pemilik']; ?>" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col">
-                                    <button type="submit" name="btnKirim" class="btn btn-primary">Submit</button>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

@@ -15,9 +15,8 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Login Pencari Kos</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <title>Login Pencari Mamikos - Cari, Bayar, & Sewa Kost Impianmu Secara Online</title>
+    <link rel="icon" type="image/x-icon" href="../assets/mamikos.png" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -42,14 +41,7 @@ if (isset($_POST["submit"])) {
                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </button>
                 Login Pencari Kos</h1>
-            <!-- Icon Divider-->
-            <div>
-            </div>
-            <div class="strike">
-                <span class="strike1">
-                    atau
-                </span>
-            </div>
+
 
             <!-- Masthead Subheading-->
             <form action="" method="post">
@@ -73,7 +65,6 @@ if (isset($_POST["submit"])) {
 
             <p> Belum punya akun Mamikos? <a class="rata-kan-satu" href="../register/registrasi_pencari.php">Daftar sekarang</a>
             </p>
-            <p class="rata-kan-dua" href="">Lupa password?</p>
 
         </div>
     </header>
