@@ -35,13 +35,9 @@
         </div>
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <p>isi dashboard</p>
+            <p>Selamat datang di Admin Mamikos</p>
         </div>
     </div>
-
-
-
-
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -49,22 +45,22 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
-    <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="admin/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="admin/bootstrap/vendor/jquery/jquery.min.js"></script>
+    <script src="admin/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="admin/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="bootstrap/js/sb-admin-2.min.js"></script>
+    <script src="admin/bootstrap/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+    <script src="admin/bootstrap/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="bootstrap/js/demo/chart-area-demo.js"></script>
-    <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+    <script src="admin/bootstrap/js/demo/chart-area-demo.js"></script>
+    <script src="admin/bootstrap/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

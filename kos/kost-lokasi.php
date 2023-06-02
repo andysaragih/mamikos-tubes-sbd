@@ -4,9 +4,9 @@ if (empty($_SESSION['nohp'])) {
     header("Location: ../index.php");
 }
 $lokasi = $_GET['lokasi'];
-$query = "SELECT a.*, GROUP_CONCAT(b.peraturan_kos) as peraturan_kos
+$query = "SELECT a.*, GROUP_CONCAT(b.fasilitas_umum) as fasilitas_umum
                         FROM kos a
-                        INNER JOIN peraturan_kos b ON a.id_kos = b.id_kos
+                        INNER JOIN fasilitas_umum b ON a.id_kos = b.id_kos
                         WHERE a.kab_kota_kos = '" . $lokasi . "'
                         GROUP BY a.id_kos";
 
@@ -45,7 +45,7 @@ $sql =  mysqli_query($conn, $query);
     <!-- Header -->
     <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav">
         <div class="container">
-            <a href="/" class="logo-mamikos">
+            <a href="../mamikos.php" class="logo-mamikos">
                 <img src="https://mamikos.com/assets/logo/svg/logo_mamikos_green_v2.svg" alt="Mamikos Logo" />
             </a>
             <button class="navbar-toggler text-uppercase font-weight-bold text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@ $sql =  mysqli_query($conn, $query);
                                     <a class="nav-link" href="profil_user/profile.php">Profil </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="logout.php">
+                                    <a class="nav-link" href="../logout.php">
                                         Keluar
                                     </a>
                                 </li>
@@ -102,38 +102,30 @@ $sql =  mysqli_query($conn, $query);
                             <p class="jnstmbl mx-0"><?= $data['jenis_kos'] ?></p>
                         </div>
                         <div class="mt-3">
-                            <h4><?= $data['nama_kos']; ?> <?= $data['tipe_kamar'] ?> <?= $data['kec_kos']; ?> <?= $data['kab_kota_kos']; ?></h4>
+                            <h4><?= $data['nama_kos'] ?> <?= $data['tipe_kamar'] ?> <?= $data['kec_kos'] ?> <?= $data['kab_kota_kos'] ?></h4>
                             <h6>
                                 <?= $data['alamat_kos']; ?>
                             </h6>
                         </div>
                         <div class="mt-1">
                             <p style="color: gray;">
-                                <?= $data['peraturan_kos'] ?>
+                                <?= $data['fasilitas_umum'] ?>
                             </p>
                         </div>
                         <div class="mt-3">
                             <div class="row">
-                                <div class=" col">
-                                    <!-- rating -->
-                                    <h5 class="">
-                                        Rating
-                                    </h5>
+                                <div class="col">
+                                    <a class="btn btn-outline-secondary" href="detail-kos.php?id=<?= $data['id_kos']; ?>">Detail Kos</a>
                                 </div>
                                 <div class="col">
-                                    <h5 class="text-end"><?= $data['harga_bulan'] ?>/bulan</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <button class="btn btn-outline-secondary">Detail Kos</button>
+                                    <h5 class="text-end">Rp<?= $data['harga_bulan'] ?>/bulan</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                <?php endforeach; ?>
                 </div>
+            <?php endforeach; ?>
 
         </div>
 </body>

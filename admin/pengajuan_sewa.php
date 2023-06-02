@@ -1,22 +1,38 @@
-<?php include("1sidebar.php");
-    include("1header.php") ?>
-
+<?php
+error_reporting(0);
+include("1sidebar.php");
+include("1header.php");
+include("../function.php");
+if (isset($_POST['hapus'])) {
+    $id_pengajuan = $_POST['id_pengajuan_sewa'];
+    if (hapus3($id_pengajuan) > 0) {
+        echo "
+                <script>
+                    alert('Data berhasil dihapus')
+                    document.location.href = '../admin/pengajuan_sewa.php'
+                </script>
+            ";
+    } else {
+        echo "
+                <script>
+                    alert('Data gagal dihapus')
+                    document.location.href = '../admin/pengajuan_sewa.php'
+                </script>
+            ";
+    }
+}
+?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Pengajuan Sewa</h1>
-    </div>
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-success mb-3">Add +</button>
-            </div>
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>id</th>
                         <th>Jumlah Penyewa</th>
                         <th>Tanggal Pengajuan</th>
@@ -27,14 +43,25 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php
+                    $no = 1;
+                    $data = mysqli_query($conn, "SELECT * FROM pengajuan_sewa");
+                    if (mysqli_num_rows($data) > 0) {
+                        while ($row = mysqli_fetch_array($data)) {
+                    ?>
+                            <tr>
+                                <!-- <th scope="row"></th> -->
+                                <td><?php echo $no++ ?></td>
+                                <td><?php echo $row['id_pengajuan_sewa'] ?> </td>
+                                <td><?php echo $row['jumlah_penyewa'] ?> </td>
+                                <td><?php echo $row['tanggal_pengajuan_sewa'] ?> </td>
+                                <td><?php echo $row['tanggal_masuk'] ?> </td>
+                                <td><?php echo $row['tanggal_keluar'] ?></td>
+                                <td><?php echo $row['durasi_sewa'] ?></td>
+                            </tr>
+                    <?php }
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

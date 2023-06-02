@@ -29,10 +29,15 @@
             </div>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ request()->is('admin/dashboard') ? 'active' : '' }}">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dasboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../logout.php">
+                    <span>Logout</span>
                 </a>
             </li>
 
@@ -54,26 +59,15 @@
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="kos.php">kos</a></li>
                     <li><a class="dropdown-item" href="alamat_kos.php">alamat kos</a></li>
-                    <li><a class="dropdown-item" href="harga_kos.php">harga</a></li>
                     <li><a class="dropdown-item" href="gambar_kos.php">gambar kos</a></li>
-                    <li><a class="dropdown-item" href="fasilitas_kos.php">fasilitas kos</a></li>
-                    <li><a class="dropdown-item" href="denda.php">denda</a></li>
-                </ul>
-            </li>
-
-
-            <!-- Nav Item - kamar -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-fw fa-door-closed"></i>
-                    <span>Kamar</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="gambar_kamar.php">gambar kamar</a></li>
                     <li><a class="dropdown-item" href="ketersediaan_kamar.php">ketersediaan kamar</a></li>
-                    <li><a class="dropdown-item" href="peraturan_kamar.php">peraturan kamar</a></li>
+                    <li><a class="dropdown-item" href="data_rekening_pemilik.php">data rekening pemilik</a></li>
+
                 </ul>
             </li>
+
+
+
 
             <!-- Nav Item - Pemilik -->
             <li class="nav-item dropdown">
@@ -83,7 +77,6 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="pemilik.php">pemilik</a></li>
-                    <li><a class="dropdown-item" href="data_rekening_pemilik.php">data rekening pemilik</a></li>
                 </ul>
             </li>
 
@@ -96,9 +89,6 @@
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="user.php">user</a></li>
                     <li><a class="dropdown-item" href="pengajuan_sewa.php">pengajuan sewa</a></li>
-                    <li><a class="dropdown-item" href="pembayaran.php">pembayaran</a></li>
-                    <li><a class="dropdown-item" href="dokumen_syarat.php">dokumen syarat</a></li>
-                    <li><a class="dropdown-item" href="riwayat_transaksi.php">riwayat transaksi</a></li>
                 </ul>
             </li>
 
@@ -111,6 +101,7 @@
         <!-- End of Sidebar -->
 
         <!-- Bootstrap core JavaScript-->
+
         <script src="../bootstrap/js/bootstrap.bundle.js"></script>
         <script src="../bootstrap/vendor/jquery/jquery.min.js"></script>
         <script src="../bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -127,6 +118,7 @@
         <!-- Page level custom scripts -->
         <script src="../bootstrap/js/demo/chart-area-demo.js"></script>
         <script src="../bootstrap/js/demo/chart-pie-demo.js"></script>
+
 
 </body>
 

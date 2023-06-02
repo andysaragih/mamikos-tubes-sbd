@@ -68,6 +68,16 @@ if (isset($_POST["submit"])) {
                 <label for="email">Email</label><br>
                 <input class="divider-custom-box" type="email" id="email" name="email" required placeholder="Masukkan email untuk akun Mamikos"><br>
 
+                <label for="jenis_kelamin">Jenis Kelamin</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jeniskelamin" id="jeniskelamin1" value="Laki-Laki">
+                    <label class="form-check-label" for="jeniskelamin1">Laki-Laki</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="jeniskelamin" id="jeniskelamin2" value="Perempuan">
+                    <label class="form-check-label" for="jeniskelamin2">Perempuan</label>
+                </div><br><br>
+
                 <label for="Password">Password</label><br>
                 <div class="password-container">
                     <input class="divider-custom-box" type="password" id="password" name="password" required placeholder="Minimal 8 karakter">

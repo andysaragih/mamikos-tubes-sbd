@@ -81,7 +81,7 @@ $review_sql = mysqli_query($conn, $review);
                   <a class="nav-link" href="../profil_user/profile.php">Profil </a>
                 </li>
                 <li>
-                  <a onclick="return confirm('Apakah yakin anda ingin menghapus data')" class="nav-link" href="logout.php">
+                  <a onclick="return confirm('Apakah yakin anda ingin menghapus data')" class="nav-link" href="../logout.php">
                     Keluar
                   </a>
                 </li>

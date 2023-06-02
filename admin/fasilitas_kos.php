@@ -11,9 +11,6 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-success mb-3">Add +</button>
-            </div>
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>

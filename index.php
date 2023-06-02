@@ -74,7 +74,7 @@
                 <h5 class="bg-c-text bg-c-text--body-2">Saya ingin masuk sebagai</h5>
               </div>
               <div class="mb-2">
-                <a href="" style="color:blue;">>> atau apakah anda admin?</a>
+                <a href="login/login_admin.php" style="color:blue;">>> atau apakah anda admin?</a>
               </div>
               <div class="modal-body d-flex">
                 <div class="anak-kos" style="width:40%;">

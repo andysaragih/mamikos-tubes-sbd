@@ -48,6 +48,38 @@ function login_pencari($data)
     }
 }
 
+function login_admin($data)
+{
+    global $conn;
+
+    $user = $_POST['username'];
+    $pass_login = $_POST['password'];
+
+    $sql = "SELECT * FROM admin WHERE username = '$user' AND password = '$pass_login'";
+    $query = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_assoc($query);
+    $cek = mysqli_num_rows($query);
+
+    if ($cek == 1) {
+        $_SESSION['id_user'] = $result['id_admin'];
+        $_SESSION['username'] = $result['username'];
+        $_SESSION['password'] = $result['password'];
+
+        echo "
+            <script>
+                document.location.href = '../admin/index.php';
+            </script>
+            ";
+    } else {
+        echo "
+        <script>
+            alert('Username atau password salah. Silahkan login kembali');
+            document.location.href = 'login_admin.php';
+        </script>
+        ";
+    }
+}
+
 function login_pemilik($data)
 {
     global $conn;
@@ -91,10 +123,11 @@ function register_pemilik($data)
     $no_hp = $data['nohp'];
     $email = $_POST['email'];
     $pass = $_POST['password'];
+    $jenis_kelamin = $_POST['jeniskelamin'];
     $passconfir = $_POST['passwordconfir'];
     $password = password_hash($pass, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO pemilik (nama_pemilik, email_pemilik, no_hp_pemilik, password) VALUES ('$nama', '$email','$no_hp', '$password')";
+    $sql = "INSERT INTO pemilik (nama_pemilik, email_pemilik, no_hp_pemilik, password, jenis_kelamin) VALUES ('$nama', '$email','$no_hp', '$password', '$jenis_kelamin')";
 
     $cekEmail = mysqli_query($conn, "SELECT email_pemilik FROM pemilik WHERE email_pemilik='$email'");
     $cekHp = mysqli_query($conn, "SELECT no_hp_pemilik FROM pemilik WHERE no_hp_pemilik='$no_hp'");
@@ -885,4 +918,106 @@ function cari($keyword)
              a.alamat_kos LIKE '%$keyword%' OR
              a.kec_kos LIKE '%$keyword%'
              GROUP BY id_kos";
+}
+
+function edit_pemilik_admin($pemilik)
+{
+    global $conn;
+
+    $id = $pemilik["id_pemilik"];
+    $nama = $pemilik["nama_pemilik"];
+    $email = $pemilik["email_pemilik"];
+    $pass = $pemilik["password"];
+
+    $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+    $query = "
+        UPDATE pemilik SET
+        nama_pemilik = '$nama',
+        email_pemilik = '$email',
+        password = '$pass' 
+        WHERE id_pemilik = '$id'
+    ";
+
+
+
+    if ($conn->query($query) === TRUE) {
+        echo "
+            <script>
+                alert('akun berhasil diupdate');
+                document.location.href = 'pemilik.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('akun gagal diupdate');
+                document.location.href = 'pemilik.php';
+            </script>
+        ";
+    }
+}
+
+function edit_user($users)
+{
+    global $conn;
+
+    $id = $users["id_user"];
+    $nama = $users["nama_user"];
+    $nohp = $users["no_hp_user"];
+    $email = $users["email"];
+    $pass = $users["password"];
+
+    $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+    $query = "
+        UPDATE user SET
+        nama_user = '$nama',
+        no_hp_user = '$nohp',
+        email = '$email',
+        password = '$pass'  
+        WHERE id_user = '$id'
+    ";
+
+
+
+    if ($conn->query($query) === TRUE) {
+        echo "
+            <script>
+                alert('akun berhasil diupdate');
+                document.location.href = 'user.php';
+            </script>
+        ";
+    } else {
+        echo "
+            <script>
+                alert('akun gagal diupdate');
+                document.location.href = 'user.php';
+            </script>
+        ";
+    }
+}
+
+function hapus($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM user WHERE id_user = " . $id . "");
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus2($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM pemilik WHERE id_pemilik = " . $id . "");
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus3($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM pengajuan_sewa WHERE id_pengajuan_sewa = " . $id . "");
+
+    return mysqli_affected_rows($conn);
 }

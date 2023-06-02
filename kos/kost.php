@@ -70,7 +70,7 @@ $sql =  mysqli_query($conn, $query);
                                     <a class="nav-link" href="profil_user/profile.php">Profil </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="logout.php">
+                                    <a class="nav-link" href="../logout.php">
                                         Keluar
                                     </a>
                                 </li>
@@ -302,9 +302,9 @@ $sql =  mysqli_query($conn, $query);
                     </div>
                 </div>
                 <hr>
-            <?php endforeach; ?>
             </div>
-
+            <?php endforeach; ?>
+            
     </div>
 </body>
 <script src="js/bootstrap.js"></script>

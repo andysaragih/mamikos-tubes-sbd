@@ -1,5 +1,9 @@
-<?php include("1sidebar.php");
-    include("1header.php") ?>
+<?php 
+    error_reporting(0);
+    include("1sidebar.php");
+    include("1header.php"); 
+    include ("../function.php");
+    ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -11,28 +15,43 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col">
-                <button type="button" class="btn btn-outline-success mb-3">Add +</button>
-            </div>
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>id</th>
-                        <th>Gambar Kos</th>
+                        <th>Nama</th>
                         <th>Gambar Depan</th>
                         <th>Gambar Dalam</th>
-                        <th>Gambar Dari Jalan</th>
+                        <th>Gambar Kamar Depan</th>
+                        <th>Gambar Kamar Dalam</th>
+                        <th>Gambar Kamar Mandi</th>
+                        
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                <?php
+                            $no = 1;
+                            $data=mysqli_query($conn, "SELECT * FROM kos");
+                            if(mysqli_num_rows($data)>0){
+                            while($row = mysqli_fetch_array($data)){
+                        ?>
+                        <tr>
+                        <!-- <th scope="row"></th> -->
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $row['id_kos']?> </td>
+                        <td><?php echo $row['nama_kos']?> </td>
+                        <td><?php echo $row['gambar_kos_depan']?></td>
+                        <td><?php echo $row['gambar_kos_dalam']?></td>
+                        <td><?php echo $row['gambar_kamar_depan']?></td>
+                        <td><?php echo $row['gambar_kamar_dalam']?></td>
+                        <td><?php echo $row['gambar_kamar_mandi']?></td>
                     </tr>
+                    <?php }
+                    }
+                    
+                     ?>
                 </tbody>
             </table>
         </div>

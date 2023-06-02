@@ -1,5 +1,9 @@
-<?php include("1sidebar.php");
-    include("1header.php") ?>
+<?php 
+    error_reporting(0);
+    include("1sidebar.php");
+    include("1header.php") ;
+    include ("../function.php");
+    ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -17,7 +21,9 @@
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>id</th>
+                        <th>Nama</th>
                         <th>Alamat</th>
                         <th>Provinsi</th>
                         <th>Kabupaten/kota</th>
@@ -26,13 +32,26 @@
                 </thead>
 
                 <tbody>
+                <?php
+                            $no = 1;
+                            $data=mysqli_query($conn, "SELECT * FROM kos");
+                            if(mysqli_num_rows($data)>0){
+                            while($row = mysqli_fetch_array($data)){
+                        ?>
                     <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <!-- <th scope="row"></th> -->
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $row['id_kos']?> </td>
+                        <td><?php echo $row['nama_kos']?> </td>
+                        <td><?php echo $row['alamat_kos']?></td>
+                        <td><?php echo $row['provinsi_kos']?></td>
+                        <td><?php echo $row['kab_kota_kos']?></td>
+                        <td><?php echo $row['kec_kos']?></td>
                     </tr>
+                    <?php }
+                    }
+                    
+                     ?>
                 </tbody>
             </table>
         </div>
